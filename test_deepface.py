@@ -1,4 +1,5 @@
 from deepface import DeepFace
+import cv2
 
 result = DeepFace.verify(
     img1_path = "a.jpg",

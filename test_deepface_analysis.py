@@ -1,11 +1,10 @@
 from deepface import DeepFace
 
-result = DeepFace.verify(
-    img1_path = "a.jpg",
-    img2_path = "fake.jpg",
-    detector_backend = 'retinaface',  # 또는 'mtcnn', 'mediapipe'
+# 이미지 파일 경로를 img_path로 지정합니다.
+result = DeepFace.analyze(
+    img_path="a.jpg",
+    actions=['age', 'gender', 'race', 'emotion']
 )
-
 
 print("-----------------------------------------결과확인-----------------------------------------")
 print(result)
