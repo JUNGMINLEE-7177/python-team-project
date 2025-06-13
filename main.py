@@ -41,6 +41,7 @@ class DeepFaceUI:
         # ---- 로그인 후 버튼 (처음엔 숨김) ----
         self.attend_button = tk.Button(root, text="수업 듣기", command=self.select_class, font=("Arial", 12))
         self.focus_button = tk.Button(root, text="집중도 분석 확인", command=self.show_focus_result, font=("Arial", 12))
+        self.quit_button = tk.Button(root, text="프로그램 종료", command=self.quit_program, font=("Arial", 12))
 
     # ------------------------------------------
     # 1) 학번 입력 → 얼굴 인증
@@ -68,6 +69,7 @@ class DeepFaceUI:
 
         self.attend_button.pack(pady=20)
         self.focus_button.pack(pady=10)
+        self.quit_button.pack(pady=10)
 
     # ------------------------------------------
     # 3) 강의 선택 팝업
@@ -170,6 +172,9 @@ class DeepFaceUI:
                 subprocess.call(["xdg-open", csv_path])
         except Exception as e:
             messagebox.showerror("실패", f"CSV 파일을 열 수 없습니다:\n{e}")
+
+    def quit_program(self):
+        self.root.quit()  # 또는 self.root.destroy()
 
 # ----------------------------------------------
 # 실행 엔트리 포인트
